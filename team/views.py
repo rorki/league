@@ -13,7 +13,7 @@ def index(request):
 
 def team(request, id: int):
     """
-    Rer
+    Retrieves stats for team players.
     """
     template = loader.get_template('team.html')
     team = Team.objects.get(id=id)
