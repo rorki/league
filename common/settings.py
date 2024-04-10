@@ -53,7 +53,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'league_be.urls'
+ROOT_URLCONF = 'common.urls'
 
 TEMPLATES = [
     {
@@ -68,13 +68,13 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
             'libraries': {
-                'custom_tags': 'league_be.templatetags.groups',
+                'custom_tags': 'common.templatetags.groups',
             }
         },
     },
 ]
 
-WSGI_APPLICATION = 'league_be.wsgi.application'
+WSGI_APPLICATION = 'common.wsgi.application'
 
 
 # Database
