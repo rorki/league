@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% load bootstrap5 %}
+
+
+{% block title %}
+  List of Players
+{% endblock %}
+
+
+{% block content %}
+
+  <main role="main">
+
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">{{ team }}</h1>
+      <p class="lead text-muted">An overview of team players.</p>
+    </div>
+  </section>
+
+  <table class="table table-hover" id="playersTable">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col"># of Games</th>
+        <th scope="col">Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for player in players %}
+      <tr >
+        <th scope="row">{{forloop.counter}}</th>
+
+        <td>{{ player.name }}</td>
+        <td>{{ player.number_of_games }}</td>
+        <td>{{ player.average_score }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </main>
+
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}
+  League
+{% endblock %}
+
+{% block content %}
+    <main role="main">
+
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">League</h1>
+          <p class="lead text-muted">An overview of league games.</p>
+        </div>
+        
+      </section>
+        <div class="album py-5 bg-light">
+          <div class="container">
+            <div class="row">
+              {% for x in games %}
+              <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                  <div class="card-body">
+                    <p class="card-text" style="text-align: center;">{{ x.team1 }} {{x.score1}} - {{x.score2}} {{x.team2}}</p>
+                    <p class="card-text">Date: {{x.date}}</p>
+                    <p class="card-text">Round: {{x.round}}</p>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+    </main>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Back to top</a>
+        </p>
+      </div>
+    </footer>
+
+{% endblock %}

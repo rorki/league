@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% load bootstrap5 %}
+
+{% block title %}
+  Admin View
+{% endblock %}
+
+{% block content %}
+  <style>
+    td a { 
+        display: block; 
+    }
+    a {
+      text-decoration: none;
+      color: #000; 
+    }
+  </style>
+
+  <main role="main">
+
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">League Teams</h1>
+      <p class="lead text-muted">An overview of teams participating in the league games.</p>
+    </div>
+  </section>
+
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Team</th>
+        <th scope="col">Coach</th>
+        <th scope="col"># of Games</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for team in teams %}
+      <tr >
+        <th scope="row">{{forloop.counter}}</th>
+        <td><a href="{% url 'team' id=team.id %}" >{{ team.name }}</a></td>
+        <td><a href="{% url 'team' id=team.id %}">{{ team.coach }}</a></td>
+        <td><a href="{% url 'team' id=team.id %}">{{ team.games }}</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </main>
+
+{% endblock %}
